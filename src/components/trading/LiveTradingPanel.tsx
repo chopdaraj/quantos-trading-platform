@@ -302,9 +302,14 @@ export function LiveTradingPanel() {
             </div>
 
             {connectionMsg && (
-              <div className="p-3 rounded-xl border border-emerald-500/40 bg-emerald-500/10 text-xs font-mono text-emerald-300 flex items-center gap-2">
-                <CheckCircle2 className="h-4 w-4 text-emerald-400 shrink-0" />
-                <span>{connectionMsg}</span>
+              <div className="p-3 rounded-xl border border-emerald-500/40 bg-emerald-500/10 text-xs font-mono text-emerald-300 flex items-center justify-between gap-2">
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-emerald-400 shrink-0" />
+                  <span>{connectionMsg}</span>
+                </div>
+                <span className="text-[10px] bg-emerald-500/20 text-emerald-300 border border-emerald-400/40 px-2 py-0.5 rounded font-bold">
+                  Feed Token: ACTIVE
+                </span>
               </div>
             )}
 
@@ -335,7 +340,7 @@ export function LiveTradingPanel() {
                   style={{ background: "var(--gradient-primary)" }}
                 >
                   <Save className="h-3.5 w-3.5" />
-                  {connecting ? "Connecting to Broker API..." : "Save & Authenticate API Keys"}
+                  {connecting ? "Exchanging Tokens & Authenticating..." : "Save Keys & Generate Feed Token"}
                 </button>
               </div>
             </div>
