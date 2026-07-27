@@ -276,28 +276,28 @@ export function LiveTradingPanel() {
                 </div>
               </div>
 
-              {/* Option 2: Production Domain */}
+              {/* Option 2: Production Vercel Domain */}
               <div className="space-y-1">
-                <div className="flex items-center justify-between text-[11px] font-mono text-primary">
-                  <span>Production Domain (Vercel / Live Domain):</span>
+                <div className="flex items-center justify-between text-[11px] font-mono text-primary font-bold">
+                  <span>Live Production Vercel Redirect URL:</span>
                   <button
                     type="button"
                     onClick={() => {
-                      navigator.clipboard.writeText("https://algo.kishanpatel.in/dashboard");
-                      setConnectionMsg("Copied: https://algo.kishanpatel.in/dashboard");
+                      navigator.clipboard.writeText("https://quantos-trading-platform.vercel.app/dashboard");
+                      setConnectionMsg("Copied Live Vercel URL: https://quantos-trading-platform.vercel.app/dashboard");
                     }}
                     className="text-primary hover:underline font-bold text-xs"
                   >
-                    Copy
+                    Copy Live URL
                   </button>
                 </div>
-                <div className="p-2 rounded-lg bg-background border border-border text-xs font-mono text-primary select-all">
-                  https://algo.kishanpatel.in/dashboard
+                <div className="p-2 rounded-lg bg-background border border-primary/50 text-xs font-mono text-primary font-bold select-all">
+                  https://quantos-trading-platform.vercel.app/dashboard
                 </div>
               </div>
 
               <p className="text-[11px] text-muted-foreground">
-                Angel One SmartAPI explicitly rejects the word <code className="text-rose-400 font-bold">localhost</code>. Use <code className="text-emerald-400 font-bold">https://127.0.0.1:8080/dashboard</code> or your live Vercel domain!
+                For Angel One SmartAPI, paste <code className="text-primary font-bold">https://quantos-trading-platform.vercel.app/dashboard</code> as your official Redirect URL!
               </p>
             </div>
 
