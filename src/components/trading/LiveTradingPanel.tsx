@@ -249,25 +249,53 @@ export function LiveTradingPanel() {
             </div>
 
             {/* Redirect URL Box for Broker Developer Portals */}
-            <div className="rounded-xl border border-border bg-card p-3.5 space-y-2">
+            <div className="rounded-xl border border-border bg-card p-3.5 space-y-3">
               <div className="flex items-center justify-between text-xs font-mono">
-                <span className="text-muted-foreground">Redirect URL / Callback URL (For Developer Portal):</span>
-                <button
-                  type="button"
-                  onClick={() => {
-                    navigator.clipboard.writeText("http://localhost:8080/dashboard");
-                    setConnectionMsg("Redirect URL copied to clipboard: http://localhost:8080/dashboard");
-                  }}
-                  className="text-primary hover:underline font-bold text-xs inline-flex items-center gap-1"
-                >
-                  Copy Redirect URL
-                </button>
+                <span className="text-muted-foreground">Redirect URL / Callback URL (For Angel One & Brokers):</span>
               </div>
-              <div className="p-2 rounded-lg bg-background border border-border text-xs font-mono text-emerald-400 select-all">
-                http://localhost:8080/dashboard
+
+              {/* Option 1: 127.0.0.1 for Angel One (Since Angel One blocks the word 'localhost') */}
+              <div className="space-y-1">
+                <div className="flex items-center justify-between text-[11px] font-mono text-emerald-400">
+                  <span>Angel One SmartAPI (Local Dev):</span>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      navigator.clipboard.writeText("https://127.0.0.1:8080/dashboard");
+                      setConnectionMsg("Copied: https://127.0.0.1:8080/dashboard");
+                    }}
+                    className="text-primary hover:underline font-bold text-xs"
+                  >
+                    Copy
+                  </button>
+                </div>
+                <div className="p-2 rounded-lg bg-background border border-border text-xs font-mono text-emerald-400 select-all">
+                  https://127.0.0.1:8080/dashboard
+                </div>
               </div>
+
+              {/* Option 2: Production Domain */}
+              <div className="space-y-1">
+                <div className="flex items-center justify-between text-[11px] font-mono text-primary">
+                  <span>Production Domain (Vercel / Live Domain):</span>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      navigator.clipboard.writeText("https://algo.kishanpatel.in/dashboard");
+                      setConnectionMsg("Copied: https://algo.kishanpatel.in/dashboard");
+                    }}
+                    className="text-primary hover:underline font-bold text-xs"
+                  >
+                    Copy
+                  </button>
+                </div>
+                <div className="p-2 rounded-lg bg-background border border-border text-xs font-mono text-primary select-all">
+                  https://algo.kishanpatel.in/dashboard
+                </div>
+              </div>
+
               <p className="text-[11px] text-muted-foreground">
-                Paste this Redirect URL into Zerodha Kite Connect, Dhan, Fyers, or Angel One developer portal when creating your API App.
+                Angel One SmartAPI explicitly rejects the word <code className="text-rose-400 font-bold">localhost</code>. Use <code className="text-emerald-400 font-bold">https://127.0.0.1:8080/dashboard</code> or your live Vercel domain!
               </p>
             </div>
 
