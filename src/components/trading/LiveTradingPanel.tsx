@@ -251,53 +251,25 @@ export function LiveTradingPanel() {
             </div>
 
             {/* Redirect URL Box for Broker Developer Portals */}
-            <div className="rounded-xl border border-border bg-card p-3.5 space-y-3">
-              <div className="flex items-center justify-between text-xs font-mono">
-                <span className="text-muted-foreground">Redirect URL / Callback URL (For Angel One & Brokers):</span>
+            <div className="rounded-xl border border-primary/40 bg-card p-4 space-y-2.5">
+              <div className="flex items-center justify-between text-xs font-mono font-bold text-primary">
+                <span>Official Live Vercel Redirect URL (For Angel One & Brokers):</span>
+                <button
+                  type="button"
+                  onClick={() => {
+                    navigator.clipboard.writeText("https://quantos-trading-platform.vercel.app/dashboard");
+                    setConnectionMsg("Copied Live Vercel URL: https://quantos-trading-platform.vercel.app/dashboard");
+                  }}
+                  className="text-primary hover:underline font-bold text-xs bg-primary/10 px-2 py-1 rounded border border-primary/30"
+                >
+                  Copy Live URL
+                </button>
               </div>
-
-              {/* Option 1: 127.0.0.1 for Angel One (Since Angel One blocks the word 'localhost') */}
-              <div className="space-y-1">
-                <div className="flex items-center justify-between text-[11px] font-mono text-emerald-400">
-                  <span>Angel One SmartAPI (Local Dev):</span>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      navigator.clipboard.writeText("https://127.0.0.1:8080/dashboard");
-                      setConnectionMsg("Copied: https://127.0.0.1:8080/dashboard");
-                    }}
-                    className="text-primary hover:underline font-bold text-xs"
-                  >
-                    Copy
-                  </button>
-                </div>
-                <div className="p-2 rounded-lg bg-background border border-border text-xs font-mono text-emerald-400 select-all">
-                  https://127.0.0.1:8080/dashboard
-                </div>
+              <div className="p-2.5 rounded-xl bg-background border border-primary/60 text-sm font-mono text-primary font-bold select-all">
+                https://quantos-trading-platform.vercel.app/dashboard
               </div>
-
-              {/* Option 2: Production Vercel Domain */}
-              <div className="space-y-1">
-                <div className="flex items-center justify-between text-[11px] font-mono text-primary font-bold">
-                  <span>Live Production Vercel Redirect URL:</span>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      navigator.clipboard.writeText("https://quantos-trading-platform.vercel.app/dashboard");
-                      setConnectionMsg("Copied Live Vercel URL: https://quantos-trading-platform.vercel.app/dashboard");
-                    }}
-                    className="text-primary hover:underline font-bold text-xs"
-                  >
-                    Copy Live URL
-                  </button>
-                </div>
-                <div className="p-2 rounded-lg bg-background border border-primary/50 text-xs font-mono text-primary font-bold select-all">
-                  https://quantos-trading-platform.vercel.app/dashboard
-                </div>
-              </div>
-
               <p className="text-[11px] text-muted-foreground">
-                For Angel One SmartAPI, paste <code className="text-primary font-bold">https://quantos-trading-platform.vercel.app/dashboard</code> as your official Redirect URL!
+                Paste <code className="text-primary font-bold">https://quantos-trading-platform.vercel.app/dashboard</code> into Angel One SmartAPI, Zerodha, Dhan, or Fyers portal as your official Redirect URL.
               </p>
             </div>
 
