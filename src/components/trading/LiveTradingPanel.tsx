@@ -225,11 +225,13 @@ export function LiveTradingPanel() {
               </div>
 
               <div className="space-y-1.5">
-                <label className="text-xs font-medium text-muted-foreground">API Secret / Secret Key</label>
+                <label className="text-xs font-medium text-muted-foreground">
+                  API Secret / Secret Key {activeBroker.includes("Angel") && "(Optional for Angel One)"}
+                </label>
                 <input
                   type="password"
-                  required
-                  placeholder="••••••••••••••••••••"
+                  required={!activeBroker.includes("Angel")}
+                  placeholder={activeBroker.includes("Angel") ? "Optional for Angel One (or enter API Key)" : "••••••••••••••••••••"}
                   value={apiSecret}
                   onChange={(e) => setApiSecret(e.target.value)}
                   className="w-full rounded-xl border border-border bg-card px-3.5 py-2 text-sm font-mono outline-none focus:border-primary"
